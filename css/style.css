@@ -102,7 +102,7 @@ p a:hover {
     color:#fff;
 }
 .header .glavno {
-    background:url(/images/use-svg-as-background-image-particle-strokes.svg)  0 -1px;
+    background:url(../images/use-svg-as-background-image-particle-strokes.svg)  0 -1px;
     height:auto;
     width:auto;
 }
