@@ -567,7 +567,7 @@ h2 {
     font-size: 2em;
     opacity: 0;
     transform: translateX(0);
-    animation: textAnimation 1.5s ease-out forwards; /* Анимација за целиот текст */
+    animation: textAnimation 1.5s ease-out forwards;
 }
 .glavno h3 span:first-child {
     opacity: 0;
