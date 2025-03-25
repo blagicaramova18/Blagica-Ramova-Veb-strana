@@ -45,14 +45,14 @@
         <div class="firstPart">
             <form>
                 Име <br>
-                <input type="text" id="fname" name="fname" placeholder="Вашето име..."><br>
+                <input type="text" id="firstName" name="firstName" placeholder="Вашето име..."><br>
                 <br>
                 Датум на раѓање <br>
-                <input placeholder="dd----- yyyy" style="height: 36px" type="date" required pattern="\d{4}-\d{2}"  >
+                <input placeholder="dd----- yyyy" style="height: 36px" type="date" required pattern="\d{4}-\d{2}" id="birthDate" name="birthDate" >
                 <br>
                 <br>
                 Држава <br>
-                <select name="countryCode" style="height: 36px" id="zemja">
+                <select name="country" style="height: 36px" id="country">
                     <option data-countryCode="GB" value="44" Selected>North Macedonia </option>
                     <option data-countryCode="US" value="1"> USA </option>
                     <optgroup label="Other countries">
@@ -279,14 +279,14 @@
 
         <div class="secondPart">
            Презиме<br>
-            <input placeholder="Вашето презиме.." type="text">
+            <input placeholder="Вашето презиме.." type="text" id="lastName" name="lastName">
             <br>
             <br>
             Порака <br>
-            <textarea placeholder="Порака..."  style="width: 555px; height: 200px"> </textarea>
+            <textarea placeholder="Порака..."  style="width: 555px; height: 200px" id="message" name="message"> </textarea>
             <br>
             <br>
-            <input class="sumbit" type="submit">
+            <button class="sumbit" type="button" onclick="sendEmail()">Испрати</button>
         </div>
     </div>
 </article>
@@ -306,4 +306,25 @@
 </div>
 
 </body>
+<script>
+        function sendEmail() {
+            let firstName = document.getElementById("firstName").value;
+            let lastName = document.getElementById("lastName").value;
+            let birthDate = document.getElementById("birthDate").value;
+            let country = document.getElementById("country").selectedOptions[0].text;
+            let message = document.getElementById("message").value;
+        
+            // Construct email content
+            let subject = "Контакт за книги кои треба да ги има на твојата веб-страница!";
+            let body = `Порака: ${message}\n\n
+                Име: ${firstName}
+                Презиме: ${lastName}
+                Датум на раѓање: ${birthDate}
+                Држава: ${country} 
+            `;
+        
+            // Open default email client
+            window.location.href = `mailto:blagicaramova46@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+</script>
 </html>
